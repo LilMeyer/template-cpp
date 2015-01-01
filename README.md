@@ -1,3 +1,3 @@
-template-cpp https://travis-ci.org/LilMeyer/template-cpp.svg?branch=master
+template-cpp [[https://travis-ci.org/LilMeyer/template-cpp.svg?branch=master]]
 ============
 
