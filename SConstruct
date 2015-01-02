@@ -6,12 +6,12 @@ envDict = dict(BUILD_DIR='build')
 env = Environment(**envDict)
 
 
-env.Program(target='$BUILD_DIR/main', source=['src/core/main.cpp'])
+env.Program(target='main', source=['src/core/main.cpp'])
+# env.Program(target='$BUILD_DIR/main', source=['src/core/main.cpp'])
 env.Append(CCFLAGS= '-std=c++11')
 
-# Export('env')
-
-# SConscript('src/SConscript', 'env')
+Export('env')
+env.SConscript('src/SConscript')
 
 # #get the mode flag from the command line
 # mode = ARGUMENTS.get('mode', 'release')         #default to 'debug' if the user didn't specify
