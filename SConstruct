@@ -5,6 +5,7 @@ envDict = dict(BUILD_DIR='build')
 
 env = Environment(**envDict)
 
+env.Append(CPPPATH=['src/unittest'])
 
 env.Program(target='main', source=['src/core/main.cpp'])
 # env.Program(target='$BUILD_DIR/main', source=['src/core/main.cpp'])

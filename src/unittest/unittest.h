@@ -23,41 +23,30 @@
 
 
 #define _ASSERT_COMPARISON(COMPARISON, a, b)                    \
-  if (ComparisonAssertion_##COMPARISON ca = ComparisonAssertion_##COMPARISON(__FILE__, __LINE__, #a, #b, a, b)) \
-    ca.failure().stream()
-
-// #define TEST(CASE_NAME, TEST_NAME) \
-//     class _TEST_TYPE_NAME(CASE_NAME, TEST_NAME) : public ::mongo::unittest::Test { \
-//     private:                                                            \
-//         virtual void _doTest();                                         \
-//                                                                         \
-//         static const RegistrationAgent<_TEST_TYPE_NAME(CASE_NAME, TEST_NAME) > _agent; \
-//     };                                                                  \
-//     const ::mongo::unittest::Test::RegistrationAgent<_TEST_TYPE_NAME(CASE_NAME, TEST_NAME) > \
-//             _TEST_TYPE_NAME(CASE_NAME, TEST_NAME)::_agent(#CASE_NAME, #TEST_NAME); \
-//     void _TEST_TYPE_NAME(CASE_NAME, TEST_NAME)::_doTest()
+  ComparisonAssertion_##COMPARISON ca = ComparisonAssertion_##COMPARISON(__FILE__, __LINE__, #a, #b, a, b);
 
 
 
-#define DECLARE_COMPARISON_ASSERTION(NAME, OPERATOR)              \
-  class ComparisonAssertion_##NAME  {                             \
-  typedef void (ComparisonAssertion_##NAME::*bool_type)() const;  \
-  public:                                                         \
+#define DECLARE_COMPARISON_ASSERTION(NAME, OPERATOR)            \
+  class ComparisonAssertion_##NAME  {                           \
+  public:                                                       \
     template <typename A, typename B>                           \
     ComparisonAssertion_##NAME(                                 \
-            const std::string& theFile,                         \
-            unsigned theLine,                                   \
-            const StringData& aExpression,                      \
-            const StringData& bExpression,                      \
-            const A& a,                                         \
-            const B& b)  {                                      \
-        if (a OPERATOR b) {                                     \
-          return;                                               \
-        }                                                       \
-        std::ostringstream os;                                  \
-        std::cout << "Expected " <<                             \
-            aExpression << " " #OPERATOR " " << bExpression <<  \
-            " (" << a << " " #OPERATOR " " << b << ")";         \
+          const std::string& theFile,                           \
+          unsigned theLine,                                     \
+          const std::string& aExpression,                       \
+          const std::string& bExpression,                       \
+          const A& a,                                           \
+          const B& b)  {                                        \
+      if (a OPERATOR b) {                                       \
+        return;                                                 \
+      }                                                         \
+      std::ostringstream os;                                    \
+      std::cout << theFile << "@" << theLine << " : ";          \
+      std::cout << "Expected " <<                               \
+        aExpression << " " #OPERATOR " " << bExpression <<      \
+        " (" << a << " " #OPERATOR " " << b << ")" << std::endl;\
+      throw; \
     }                                                           \
   }
 
