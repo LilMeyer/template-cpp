@@ -46,7 +46,7 @@
       std::cout << "Expected " <<                               \
         aExpression << " " #OPERATOR " " << bExpression <<      \
         " (" << a << " " #OPERATOR " " << b << ")" << std::endl;\
-      throw; \
+      throw;                                                    \
     }                                                           \
   }
 

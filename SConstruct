@@ -1,10 +1,11 @@
 import os
 import platform
 
-envDict = dict(BUILD_DIR='build')
 
+envDict = dict(BUILD_DIR='build')
 env = Environment(**envDict)
 
+# env.Append(CPPPATH=['src/unittest', '/home/romain/lib/boost_1_57_0'])
 env.Append(CPPPATH=['src/unittest'])
 
 env.Program(target='main', source=['src/core/main.cpp'])
@@ -13,6 +14,9 @@ env.Append(CCFLAGS= '-std=c++11')
 
 Export('env')
 env.SConscript('src/SConscript')
+
+
+
 
 # #get the mode flag from the command line
 # mode = ARGUMENTS.get('mode', 'release')         #default to 'debug' if the user didn't specify
