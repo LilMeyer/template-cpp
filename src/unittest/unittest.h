@@ -23,12 +23,11 @@
 
 
 #define _ASSERT_COMPARISON(COMPARISON, a, b)                    \
-  ComparisonAssertion_##COMPARISON ca = ComparisonAssertion_##COMPARISON(__FILE__, __LINE__, #a, #b, a, b);
-
-
+  ComparisonAssertion_##COMPARISON(__FILE__, __LINE__, #a, #b, a, b);
 
 #define DECLARE_COMPARISON_ASSERTION(NAME, OPERATOR)            \
   class ComparisonAssertion_##NAME  {                           \
+  typedef void (ComparisonAssertion_##NAME::*bool_type)() const;\
   public:                                                       \
     template <typename A, typename B>                           \
     ComparisonAssertion_##NAME(                                 \
