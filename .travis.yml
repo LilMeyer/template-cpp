@@ -2,8 +2,8 @@
 language:
   - cpp
 compiler:
-  - g++
-  - clang++
+  - gcc
+  - clang
 env:
   global:
     - UBUNTU_CODENAME=$(lsb_release -c | awk '{print $2}')
