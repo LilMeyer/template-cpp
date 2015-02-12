@@ -10,7 +10,7 @@ env.Append(CPPPATH=['src/unittest'])
 
 env.Program(target='main', source=['src/core/main.cpp'])
 # env.Program(target='$BUILD_DIR/main', source=['src/core/main.cpp'])
-env.Append(CCFLAGS= '-std=c++11 -lboost_system')
+env.Append(CCFLAGS= '-std=c++11 -lboost_system-mt')
 
 Export('env')
 env.SConscript('src/SConscript')

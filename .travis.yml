@@ -1,17 +1,46 @@
+# See https://github.com/ptomulik/typeout/blob/master/.travis.yml
 language:
   - cpp
+compiler:
+  - g++
+  - clang++
+env:
+  global:
+    - UBUNTU_CODENAME=$(lsb_release -c | awk '{print $2}')
+    - GCC_V=4.8
 before_install:
 # We need this line to have g++4.8 available in apt
   - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
   - sudo apt-get update -qq
+  - apt-cache pkgnames g++
+  - apt-cache pkgnames clang
+  - apt-cache pkgnames libboost
+  - apt-cache pkgnames libc++
 install:
-  - sudo apt-get install libboost-all-dev
-  - sudo apt-get install -qq gcc-4.8 g++-4.8
-# We want to compile with g++ 4.8 when rather than the default g++
-  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 90
-compiler:
-  - g++
-  - clang++
+  - if [ "$CC" = 'gcc' ]; then sudo apt-get -qq install "g++-${GCC_V}"; fi
+  - if [ "$CC" = 'gcc' ]; then export CXX="g++-${GCC_V}" CC="gcc-${GCC_V}"; fi
+  - if [ "$CC" = 'clang' ]; then sudo apt-get -qq install "libstdc++-${GCC_V}-dev"; fi
+  - sudo apt-get -qq install libboost-test-dev libboost-test-dev
+before_script:
+  - $CXX --version
 script:
   - scons
   - ./main
+
+# language:
+#   - cpp
+# compiler:
+#   - g++
+#   - clang++
+# before_install:
+# # We need this line to have g++4.8 available in apt
+#   - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+#   - sudo apt-get update -qq
+# install:
+#   - sudo apt-get install libboost-all-dev
+#   - sudo apt-get install -qq gcc-4.8 g++-4.8
+# # We want to compile with g++ 4.8 when rather than the default g++
+#   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 90
+# script:
+#   - scons
+#   - ./main
