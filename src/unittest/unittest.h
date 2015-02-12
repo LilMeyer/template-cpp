@@ -14,8 +14,8 @@
 #define ASSERT_LESS_THAN_OR_EQUALS(a, b) ASSERT_LTE(a, b)
 #define ASSERT_GREATER_THAN_OR_EQUALS(a, b) ASSERT_GTE(a, b)
 
-#define ASSERT_EQ(a,b) _ASSERT_COMPARISON(EQ, a, b)
-#define ASSERT_NE(a,b) _ASSERT_COMPARISON(NE, a, b)
+#define ASSERT_EQ(a, b) _ASSERT_COMPARISON(EQ, a, b)
+#define ASSERT_NE(a, b) _ASSERT_COMPARISON(NE, a, b)
 #define ASSERT_LT(a, b) _ASSERT_COMPARISON(LT, a, b)
 #define ASSERT_LTE(a, b) _ASSERT_COMPARISON(LTE, a, b)
 #define ASSERT_GT(a, b) _ASSERT_COMPARISON(GT, a, b)
