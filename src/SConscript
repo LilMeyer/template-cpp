@@ -7,7 +7,8 @@ Import('env')
 
 env.SConscript(
   [
-    'core/SConscript',
-    'unittest/SConscript'
+    'core/SConscript'
+    # ,
+    # 'unittest/SConscript'
   ]
 )
