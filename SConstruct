@@ -39,7 +39,7 @@ env = Environment(CCFLAGS=ccflags,
 
 # custom C++ compiler
 if 'CXX' in os.environ:
-    root_env['CXX'] = os.environ['CXX']
+    env['CXX'] = os.environ['CXX']
 
 Export('env', 'build_mode')
 
