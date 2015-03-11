@@ -48,5 +48,8 @@ lib = SConscript(os.path.join('src', 'SConscript'))
 # tests = SConscript(os.path.join('tests', 'SConscript'))
 # Depends(tests, lib)
 
+libs = [
+    'cppunit'
+]
 
-env.Program(target='main', source=['src/core/main.cpp'])
+env.Program(target='main', source=['src/core/main.cpp'], LIBS=libs)
