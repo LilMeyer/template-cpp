@@ -31,5 +31,6 @@
 
 # binaries
 /main
+/money_test
 
 *.dblite
