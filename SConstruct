@@ -53,3 +53,4 @@ libs = [
 ]
 
 env.Program(target='main', source=['src/core/main.cpp'], LIBS=libs)
+env.Program(target='money_test', source=['src/core/money_test.cpp'], LIBS=libs)

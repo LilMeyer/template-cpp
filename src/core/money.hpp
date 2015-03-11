@@ -5,9 +5,9 @@
 
 class Money {
 public:
-  Money( double amount, std::string currency )
-    : m_amount( amount ), m_currency( currency ) {
-  }
+  Money(): m_amount(0), m_currency("EURO") {}
+  Money(double amount, std::string currency)
+    : m_amount(amount), m_currency(currency) {}
 
   double getAmount() const {
     return m_amount;
@@ -18,6 +18,7 @@ public:
   }
 
   void helloPrint();
+  void afficher() const;
 
 private:
   double m_amount;
