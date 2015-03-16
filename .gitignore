@@ -30,7 +30,6 @@
 *.app
 
 # binaries
-/main
-/money_test
+build
 
 *.dblite

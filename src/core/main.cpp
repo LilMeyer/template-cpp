@@ -3,9 +3,7 @@
 #include <cppunit/ui/text/TestRunner.h>
 #include <cppunit/extensions/HelperMacros.h>
 
-
-class MoneyTest : public CppUnit::TestFixture
-{
+class MoneyTest : public CppUnit::TestFixture {
   CPPUNIT_TEST_SUITE( MoneyTest );
   CPPUNIT_TEST( testConstructor );
   CPPUNIT_TEST_SUITE_END();

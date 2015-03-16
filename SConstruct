@@ -1,6 +1,8 @@
 import os
 import sys
 
+taget_dir = "build"
+
 # build mode (debug/release; default to release)
 build_mode = ARGUMENTS.get('mode', 'release')
 
@@ -52,5 +54,6 @@ libs = [
     'cppunit'
 ]
 
-env.Program(target='main', source=['src/core/main.cpp'], LIBS=libs)
-env.Program(target='money_test', source=['src/core/money_test.cpp'], LIBS=libs)
+env.Program(target=os.path.join(taget_dir, 'main'), source=['src/core/main.cpp'], LIBS=libs)
+env.Program(target=os.path.join(taget_dir, 'money_test'), source=['src/core/money_test.cpp'], LIBS=libs)
+env.Program(target=os.path.join(taget_dir, 'bimap_test'), source=['src/core/bimap_test.cpp'], LIBS=libs)
