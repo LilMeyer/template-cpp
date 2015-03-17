@@ -57,3 +57,4 @@ libs = [
 env.Program(target=os.path.join(taget_dir, 'main'), source=['src/core/main.cpp'], LIBS=libs)
 env.Program(target=os.path.join(taget_dir, 'money_test'), source=['src/core/money_test.cpp'], LIBS=libs)
 env.Program(target=os.path.join(taget_dir, 'bimap_test'), source=['src/core/bimap_test.cpp'], LIBS=libs)
+env.Program(target=os.path.join(taget_dir, 'graph_test'), source=['src/core/graph_test.cpp'], LIBS=libs)
