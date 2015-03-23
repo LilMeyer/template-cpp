@@ -1,3 +1,5 @@
+# include Makefile_tests
+
 all:
 	scons
 	./build/main
@@ -7,6 +9,9 @@ all:
 
 clean:
 	rm -rf build
+
+generate_tests:
+	python generate_tests.py
 
 main:
 	./build/main
@@ -22,5 +27,13 @@ bimap_test:
 graph_test:
 	scons build/graph_test
 	./build/graph_test
+
+graph_test2:
+	scons build/graph_test2
+	./build/graph_test2
+
+graph_test3:
+	scons build/graph_test3
+	./build/graph_test3
 
 .PHONY: all main money_test bimap_test graph_test
