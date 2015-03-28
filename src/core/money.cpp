@@ -1,3 +1,4 @@
+#include <iostream>
 #include "money.hpp"
 
 void Money::helloPrint() {

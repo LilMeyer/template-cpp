@@ -1,5 +1,4 @@
-import os
-import sys
+import os, sys, glob
 
 taget_dir = "build"
 
@@ -51,10 +50,11 @@ lib = SConscript(os.path.join('src', 'SConscript'))
 # Depends(tests, lib)
 
 libs = [
-    'cppunit'
+    'cppunit',
+    'boost_system'
 ]
 
-env.Program(target=os.path.join(taget_dir, 'main'), source=['src/core/main.cpp'], LIBS=libs)
-env.Program(target=os.path.join(taget_dir, 'money_test'), source=['src/core/money_test.cpp'], LIBS=libs)
-env.Program(target=os.path.join(taget_dir, 'bimap_test'), source=['src/core/bimap_test.cpp'], LIBS=libs)
-env.Program(target=os.path.join(taget_dir, 'graph_test'), source=['src/core/graph_test.cpp'], LIBS=libs)
+files = glob.glob('src/core/*.cpp')
+
+for file in files:
+    t = env.Program(target=file[9:-4], source=[file], LIBS=libs)

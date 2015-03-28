@@ -17,10 +17,12 @@
 
 using namespace boost;
 
-class GraphTest : public CppUnit::TestFixture {
 typedef std::pair<int, int> Edge;
 typedef adjacency_list<vecS, vecS, bidirectionalS> Graph;
 typedef typename graph_traits<Graph>::vertex_descriptor Vertex;
+typedef property_map<Graph, vertex_index_t>::type IndexMap;
+class GraphTest : public CppUnit::TestFixture {
+
 private:
   enum { A, B, C, D, E, F, G, N };
   const int num_vertices = N;
@@ -29,26 +31,9 @@ private:
   std::vector<Edge> edge_array;
 
 public:
-  template <class Graph> struct exercise_vertex {
-    void operator()(const Vertex& v) const {
-      typedef graph_traits<Graph> GraphTraits;
-      typename property_map<Graph, vertex_index_t>::type
-        index = get(vertex_index, g);
 
-      std::cout << "out-edges: ";
-      typename GraphTraits::out_edge_iterator out_i, out_end;
-      typename GraphTraits::edge_descriptor e;
-      for (boost::tie(out_i, out_end) = out_edges(v, g);
-           out_i != out_end; ++out_i) {
-        e = *out_i;
-        Vertex src = source(e, g), targ = target(e, g);
-        std::cout << "(" << index[src] << ","
-                  << index[targ] << ") ";
-      }
-      std::cout << std::endl;
-    }
-  };
   GraphTest() : g(N) {
+    /* CONSTRUCTING A GRAPH */
     edge_array.push_back(Edge(A, B));
     edge_array.push_back(Edge(A, D));
     edge_array.push_back(Edge(C, A));
@@ -76,8 +61,7 @@ protected:
 
   void test1() {
     std::cout << std::endl;
-    /* CONSTRUCTING A GRAPH */
-    // create a typedef for the Graph type
+
 
     // Make convenient labels for the vertices
     const char* name = "ABCDE";
@@ -87,11 +71,8 @@ protected:
       add_edge(edge_array[i].first, edge_array[i].second, g);
     }
 
-    /* ACCESSING THE VERTEX SET */
-    typedef graph_traits<Graph>::vertex_descriptor Vertex;
 
     // get the property map for vertex indices
-    typedef property_map<Graph, vertex_index_t>::type IndexMap;
     IndexMap index = get(vertex_index, g);
 
     std::cout << "vertices(g) = ";
@@ -111,7 +92,7 @@ protected:
                   << "," << index[target(*ei, g)] << ") ";
     std::cout << std::endl;
 
-
+    // exercise_vertex<Graph> ev(g);
 
 
   }

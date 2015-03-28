@@ -4,23 +4,15 @@ all:
 
 # compile_main:
 # 	scons main
+include Makefile_tests
 
-clean:
-	rm -rf build
+generate_tests:
+	python generate_tests.py
 
 main:
 	./build/main
 
-money_test:
-	scons build/money_test
-	./build/money_test
-
-bimap_test:
-	scons build/bimap_test
-	./build/bimap_test
-
-graph_test:
-	scons build/graph_test
-	./build/graph_test
+clean:
+	rm -rf build
 
 .PHONY: all main money_test bimap_test graph_test

@@ -1,0 +1,16 @@
+binary_test:
+	scons binary_test
+	./binary_test
+bimap_test:
+	scons bimap_test
+	./bimap_test
+money_test:
+	scons money_test
+	./money_test
+graph_test:
+	scons graph_test
+	./graph_test
+
+all_tests: binary_test bimap_test money_test graph_test
+
+.PHONY: binary_test bimap_test money_test graph_test
