@@ -31,5 +31,7 @@
 
 # binaries
 build
+main
+*_test
 
 *.dblite

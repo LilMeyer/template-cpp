@@ -9,9 +9,12 @@ generate_tests:
 
 main:
 	scons main
-	./build/main
+	./main
 
 test: all_tests
+
+travis:
+	scons mode=debug && make generate_tests && make test
 
 clean:
 	rm -f main
