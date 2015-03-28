@@ -11,6 +11,9 @@ main:
 	scons main
 	./build/main
 
+
+test: generate_tests all_tests
+
 clean:
 	rm -rf build
 
