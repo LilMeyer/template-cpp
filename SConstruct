@@ -14,6 +14,7 @@ ccflags = [
     '-std=c++11',
     '-Wall',
     '-pedantic-errors',
+    '-Wfatal-errors' # stop at the first error
 ]
 
 cppdefines = []

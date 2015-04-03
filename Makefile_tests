@@ -1,3 +1,9 @@
+map_test:
+	scons map_test
+	./map_test
+umap_test:
+	scons umap_test
+	./umap_test
 binary_test:
 	scons binary_test
 	./binary_test
@@ -11,6 +17,6 @@ graph_test:
 	scons graph_test
 	./graph_test
 
-all_tests: binary_test bimap_test money_test graph_test
+all_tests: map_test umap_test binary_test bimap_test money_test graph_test
 
-.PHONY: binary_test bimap_test money_test graph_test
+.PHONY: map_test umap_test binary_test bimap_test money_test graph_test
