@@ -1,0 +1,6 @@
+
+Import('env')
+
+exampleEnv = env.Clone()
+exampleEnv.SConscript('example/SConscript', exports={ 'env' : exampleEnv })
+

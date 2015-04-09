@@ -16,7 +16,10 @@ money_test:
 graph_test:
 	scons graph_test
 	./graph_test
+json_test:
+	scons json_test
+	./json_test
 
-all_tests: map_test umap_test binary_test bimap_test money_test graph_test
+all_tests: map_test umap_test binary_test bimap_test money_test graph_test json_test
 
-.PHONY: map_test umap_test binary_test bimap_test money_test graph_test
+.PHONY: map_test umap_test binary_test bimap_test money_test graph_test json_test

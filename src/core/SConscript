@@ -1,3 +1,12 @@
-Import("env")
+import os
+import glob
 
-# env.CppUnitTest('money_test2', ['money_test2.cpp'])
+
+Import('env')
+
+# env.Program('../bin/graph_test2', [ 'graph_test2.cpp' ], LIBS=env['libs'], LIBPATH='../bin/')
+
+files = glob.glob('*_test.cpp')
+for file in files:
+  t = env.Program(target='../bin/' + file[:-4], source=[file], LIBS=env['libs'])
+

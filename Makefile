@@ -22,3 +22,7 @@ clean:
 	rm -rf build
 
 .PHONY: all main money_test bimap_test graph_test
+
+
+# Compilation d'un fichier :
+# g++ -o graph_test2 src/core/graph_test2.o -lcppunit -lboost_system
