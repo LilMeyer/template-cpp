@@ -11,6 +11,9 @@ main:
 	scons main
 	./main
 
+make_all:
+	scons
+
 test: all_tests
 
 travis:
