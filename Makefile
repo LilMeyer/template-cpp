@@ -17,7 +17,7 @@ make_all:
 test: all_tests
 
 travis:
-	scons mode=debug && make generate_tests && make test
+	scons mode=debug && make generate_tests && make run_all
 
 clean:
 	rm -f main
