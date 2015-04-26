@@ -2,6 +2,10 @@ map_test:
 	scons build/release/src/bin/map_test
 	./build/release/src/bin/map_test
 
+thread_test:
+	scons build/release/src/bin/thread_test
+	./build/release/src/bin/thread_test
+
 umap_test:
 	scons build/release/src/bin/umap_test
 	./build/release/src/bin/umap_test
@@ -26,10 +30,11 @@ json_test:
 	scons build/release/src/bin/json_test
 	./build/release/src/bin/json_test
 
-all_tests: map_test umap_test binary_test bimap_test money_test graph_test json_test
+all_tests: map_test thread_test umap_test binary_test bimap_test money_test graph_test json_test
 
 run_all: make_all
 	./build/release/src/bin/map_test
+	./build/release/src/bin/thread_test
 	./build/release/src/bin/umap_test
 	./build/release/src/bin/binary_test
 	./build/release/src/bin/bimap_test
@@ -37,4 +42,4 @@ run_all: make_all
 	./build/release/src/bin/graph_test
 	./build/release/src/bin/json_test
 	
-.PHONY: map_test umap_test binary_test bimap_test money_test graph_test json_test
+.PHONY: map_test thread_test umap_test binary_test bimap_test money_test graph_test json_test
