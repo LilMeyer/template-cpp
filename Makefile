@@ -23,6 +23,7 @@ clean:
 	rm -f main
 	rm -f *_test
 	rm -rf build
+	find . -name '*.o' -delete
 
 .PHONY: all main money_test bimap_test graph_test
 

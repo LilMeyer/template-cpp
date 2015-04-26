@@ -87,7 +87,8 @@ env.VariantDir('build/release/src', 'src', duplicate=0)
 
 env['libs'] = [
   'cppunit',
-  'boost_system'
+  'boost_system',
+  'boost_thread-mt'
 ]
 
 lib = SConscript('build/release/src/SConscript', { 'env': env })
