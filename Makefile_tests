@@ -1,45 +1,45 @@
 map_test:
-	scons build/release/src/bin/map_test
-	./build/release/src/bin/map_test
+	scons src/bin/map_test
+	./src/bin/map_test
 
 thread_test:
-	scons build/release/src/bin/thread_test
-	./build/release/src/bin/thread_test
+	scons src/bin/thread_test
+	./src/bin/thread_test
 
 umap_test:
-	scons build/release/src/bin/umap_test
-	./build/release/src/bin/umap_test
+	scons src/bin/umap_test
+	./src/bin/umap_test
 
 binary_test:
-	scons build/release/src/bin/binary_test
-	./build/release/src/bin/binary_test
+	scons src/bin/binary_test
+	./src/bin/binary_test
 
 bimap_test:
-	scons build/release/src/bin/bimap_test
-	./build/release/src/bin/bimap_test
+	scons src/bin/bimap_test
+	./src/bin/bimap_test
 
 money_test:
-	scons build/release/src/bin/money_test
-	./build/release/src/bin/money_test
+	scons src/bin/money_test
+	./src/bin/money_test
 
 graph_test:
-	scons build/release/src/bin/graph_test
-	./build/release/src/bin/graph_test
+	scons src/bin/graph_test
+	./src/bin/graph_test
 
 json_test:
-	scons build/release/src/bin/json_test
-	./build/release/src/bin/json_test
+	scons src/bin/json_test
+	./src/bin/json_test
 
 all_tests: map_test thread_test umap_test binary_test bimap_test money_test graph_test json_test
 
 run_all: make_all
-	./build/release/src/bin/map_test
-	./build/release/src/bin/thread_test
-	./build/release/src/bin/umap_test
-	./build/release/src/bin/binary_test
-	./build/release/src/bin/bimap_test
-	./build/release/src/bin/money_test
-	./build/release/src/bin/graph_test
-	./build/release/src/bin/json_test
+	./src/bin/map_test
+	./src/bin/thread_test
+	./src/bin/umap_test
+	./src/bin/binary_test
+	./src/bin/bimap_test
+	./src/bin/money_test
+	./src/bin/graph_test
+	./src/bin/json_test
 	
 .PHONY: map_test thread_test umap_test binary_test bimap_test money_test graph_test json_test

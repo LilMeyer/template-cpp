@@ -76,9 +76,7 @@ Export('env', 'build_mode')
 env.Append(CPPDEFINES=['RELEASE'])
 
 
-env.VariantDir('build/release/src', 'src', duplicate=0)
-
-
+# env.VariantDir('build/release/src', 'src', duplicate=0)
 
 # library and tests
 # lib = SConscript(os.path.join('src', 'SConscript'), {'env': env})
@@ -88,10 +86,10 @@ env.VariantDir('build/release/src', 'src', duplicate=0)
 env['libs'] = [
   'cppunit',
   'boost_system',
-  'boost_thread-mt'
+  'boost_thread'
 ]
 
-lib = SConscript('build/release/src/SConscript', { 'env': env })
+lib = SConscript('src/core/SConscript', { 'env': env })
 print_info()
 
 
