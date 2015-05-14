@@ -89,7 +89,7 @@ env['libs'] = [
   'boost_thread'
 ]
 
-lib = SConscript('src/core/SConscript', { 'env': env })
+lib = SConscript('src/SConscript', { 'env': env })
 print_info()
 
 

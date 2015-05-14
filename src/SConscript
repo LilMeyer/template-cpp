@@ -8,7 +8,8 @@ Import('env')
 env.SConscript(
   [
     # 'third_party/SConscript',
-    'core/SConscript'
+    'core/SConscript',
+    'core/data_structures/SConscript'
     # ,
     # 'unittest/SConscript'
   ]

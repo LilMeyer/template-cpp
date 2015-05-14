@@ -15,6 +15,18 @@ for file in files:
   str = str + 'scons ' + bin_path + f + '\n\t'
   str = str + './' + bin_path + f + '\n\n'
   run_all = run_all + './' + bin_path + f + '\n\t'
+
+bin_path = 'src/bin/data_structures/'
+files = glob.glob('src/core/data_structures/*_test.cpp')
+for file in files:
+  f = file[25:-4]
+  all = all + ' ' + f
+  str = str + f + ':\n\t'
+  str = str + 'scons ' + bin_path + f + '\n\t'
+  str = str + './' + bin_path + f + '\n\n'
+  run_all = run_all + './' + bin_path + f + '\n\t'
+
+
 str = str + 'all_tests:' + all + '\n\n'
 str = str + 'run_all: make_all\n'
 str = str + run_all + '\n'

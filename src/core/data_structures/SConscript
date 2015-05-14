@@ -1,0 +1,11 @@
+import os
+import glob
+
+Import('env')
+
+files = glob.glob('*_test.cpp')
+for file in files:
+  print '../../bin/data_structures/' + file[:-4]
+  t = env.Program(target= '../../bin/data_structures/' + file[:-4], source=[file], LIBS=env['libs'])
+
+print 'Hello from data_structures'

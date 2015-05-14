@@ -30,7 +30,11 @@ json_test:
 	scons src/bin/json_test
 	./src/bin/json_test
 
-all_tests: map_test thread_test umap_test binary_test bimap_test money_test graph_test json_test
+fenwick_test:
+	scons src/bin/data_structures/fenwick_test
+	./src/bin/data_structures/fenwick_test
+
+all_tests: map_test thread_test umap_test binary_test bimap_test money_test graph_test json_test fenwick_test
 
 run_all: make_all
 	./src/bin/map_test
@@ -41,5 +45,6 @@ run_all: make_all
 	./src/bin/money_test
 	./src/bin/graph_test
 	./src/bin/json_test
+	./src/bin/data_structures/fenwick_test
 	
-.PHONY: map_test thread_test umap_test binary_test bimap_test money_test graph_test json_test
+.PHONY: map_test thread_test umap_test binary_test bimap_test money_test graph_test json_test fenwick_test
