@@ -75,14 +75,7 @@ protected:
   }
 
   void test1() {
-    for(int i = 0; i < size; i++) {
-      total += v[i];
-      c.push_back(total);
-    }
 
-    for(int i = 0; i < size; i++) {
-      cout << fen[i] << endl;
-    }
   }
 };
 
